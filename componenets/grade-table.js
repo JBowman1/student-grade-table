@@ -5,7 +5,7 @@ class GradeTable {
   }
   updateGrades(grades) {
     this.tableElement.lastElementChild.textContent = '';
-    for (var i = 0; i < grades.length; i++) {
+    for (let i = 0; i < grades.length; i++) {
       this.renderGradeRow(grades[i], this.deleteGrade);
     }
     if(grades.length < 1){
@@ -18,12 +18,12 @@ class GradeTable {
     this.deleteGrade = deleteGrade;
   }
   renderGradeRow(data, deleteGrade) {
-    var row = document.createElement('tr');
-    var student = document.createElement('td');
-    var course = document.createElement('td');
-    var grade = document.createElement('td');
-    var del = document.createElement('td');
-    var button = document.createElement('button');
+    const row = document.createElement('tr');
+    const student = document.createElement('td');
+    const course = document.createElement('td');
+    const grade = document.createElement('td');
+    const del = document.createElement('td');
+    const button = document.createElement('button');
     student.textContent = data.name;
     course.textContent = data.course;
     grade.textContent = data.grade;
@@ -33,7 +33,7 @@ class GradeTable {
     del.appendChild(button);
     row.append(student, course, grade, del);
     this.tableElement.lastElementChild.appendChild(row);
-    button.addEventListener('click', function () {
+    button.addEventListener('click', ()=> {
       deleteGrade(data.id);
     });
     return row;
